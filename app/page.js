@@ -462,10 +462,7 @@ export default function Home() {
 
           {/* central wheel — CHANGED: grows slightly at md+ */}
           <div className="relative w-[168px] h-[168px] md:w-[200px] md:h-[200px] shrink-0 z-10 animate-breathe">
-            <svg className="absolute inset-0" viewBox="0 0 176 176" fill="none">
-              <circle cx="88" cy="88" r="86" stroke="#05394c" strokeOpacity="0.14" strokeWidth="1" />
-              <circle cx="88" cy="88" r="62" stroke="#064166" strokeOpacity="0.1" strokeWidth="1" />
-            </svg>
+            
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h1
                 className="text-[38px] md:text-[44px] text-[#012836] leading-none"
@@ -473,9 +470,7 @@ export default function Home() {
               >
                 MiniMoon
               </h1>
-              <span className="mt-2 text-[11px] md:text-[12px] text-[#012836] tracking-wide">
-                One Girl · Only You
-              </span>
+             
             </div>
           </div>
 
@@ -503,7 +498,7 @@ export default function Home() {
               className="flex flex-col items-center gap-4 z-10"
             >
               <p
-                className="text-[15px] text-[#5b4c3f] tracking-wide"
+                className="text-[15px] text-[#000308] tracking-wide"
                 style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
               >
                 only you know the way in
