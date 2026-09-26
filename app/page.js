@@ -393,7 +393,8 @@ export default function Home() {
   };
 
   return (
-    <main className="h-[100svh] bg-[#141220] flex items-center justify-center sm:p-6 overflow-hidden">
+    // NOTE: added lg:p-12 for extra breathing room on large screens; sm:p-6 untouched
+    <main className="h-[100svh] bg-[#141220] flex items-center justify-center sm:p-6 lg:p-12 overflow-hidden relative">
       <style jsx global>{`
   @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
 
@@ -413,6 +414,10 @@ export default function Home() {
   .animate-swipe-hint { animation: swipe-hint 1.3s ease-in-out infinite; }
 `}</style>
 
+      {/* NEW: ambient glow behind the card, desktop only (md and up) — purely decorative, doesn't affect layout */}
+      <div className="hidden md:block absolute w-[600px] h-[600px] rounded-full bg-[#e8b4c8]/5 blur-3xl pointer-events-none" />
+      <div className="hidden lg:block absolute w-[420px] h-[420px] rounded-full bg-[#c9a875]/5 blur-3xl pointer-events-none" />
+
       {(stage === "lock" || stage === "code") && (
         <div
           onClick={() => {
@@ -429,7 +434,8 @@ export default function Home() {
               setTimeout(() => document.getElementById("code-0")?.focus(), 50);
             }
           }}
-          className={`w-full h-[100svh] sm:w-[320px] sm:h-[420px] sm:rounded-3xl border border-[#33261c]/10 flex flex-col items-center justify-center gap-7 text-center px-8 shadow-2xl relative overflow-hidden bg-cover bg-center ${stage === "lock" ? "cursor-pointer" : ""}`}
+          // CHANGED: added md:/lg: width+height so this box grows on bigger screens (sm values untouched)
+          className={`w-full h-[100svh] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px] lg:w-[420px] lg:h-[560px] sm:rounded-3xl border border-[#33261c]/10 flex flex-col items-center justify-center gap-7 text-center px-8 shadow-2xl relative overflow-hidden bg-cover bg-center z-10 ${stage === "lock" ? "cursor-pointer" : ""}`}
           style={{ backgroundImage: "url('/main.jpg')" }}
         >
           {/* glowing background layers */}
@@ -454,20 +460,20 @@ export default function Home() {
               </span>
             ))}
 
-          {/* central wheel */}
-          <div className="relative w-[168px] h-[168px] shrink-0 z-10 animate-breathe">
+          {/* central wheel — CHANGED: grows slightly at md+ */}
+          <div className="relative w-[168px] h-[168px] md:w-[200px] md:h-[200px] shrink-0 z-10 animate-breathe">
             <svg className="absolute inset-0" viewBox="0 0 176 176" fill="none">
               <circle cx="88" cy="88" r="86" stroke="#05394c" strokeOpacity="0.14" strokeWidth="1" />
               <circle cx="88" cy="88" r="62" stroke="#064166" strokeOpacity="0.1" strokeWidth="1" />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h1
-                className="text-[38px] text-[#012836] leading-none"
+                className="text-[38px] md:text-[44px] text-[#012836] leading-none"
                 style={{ fontFamily: "'TimesNewRoman', cursive", fontWeight: 700 }}
               >
                 MiniMoon
               </h1>
-              <span className="mt-2 text-[11px] text-[#012836] tracking-wide">
+              <span className="mt-2 text-[11px] md:text-[12px] text-[#012836] tracking-wide">
                 One Girl · Only You
               </span>
             </div>
@@ -477,7 +483,7 @@ export default function Home() {
           {stage === "lock" && (
             <div className="flex flex-col items-center gap-3 z-10">
               <p
-                className="text-[15px] text-[#5b4c3f] leading-relaxed max-w-[24ch]"
+                className="text-[15px] md:text-[17px] text-[#5b4c3f] leading-relaxed max-w-[24ch]"
                 style={{ fontFamily: "'TimesNewRoman', cursive", fontWeight: 600 }}
               >
                 Universe of Moon
@@ -525,7 +531,8 @@ export default function Home() {
       {stage === "open" && (
         <div
           key={house.numeral}
-          className="animate-card-in w-full h-[100svh] sm:w-[320px] sm:h-[420px] sm:rounded-3xl bg-[#f6f0e6] shadow-2xl relative overflow-hidden flex flex-col"
+          // CHANGED: added md:/lg: width+height
+          className="animate-card-in w-full h-[100svh] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px] lg:w-[420px] lg:h-[560px] sm:rounded-3xl bg-[#f6f0e6] shadow-2xl relative overflow-hidden flex flex-col z-10"
         >
           {makeHearts(index * 9).map((h) => (
             <span
@@ -550,8 +557,8 @@ export default function Home() {
             </span>
           ))}
 
-          {/* photo */}
-          <div className="relative h-[46%] shrink-0 overflow-hidden">
+          {/* photo — CHANGED: slightly taller on md+ */}
+          <div className="relative h-[46%] md:h-[48%] shrink-0 overflow-hidden">
             <div
               className="absolute inset-0 bg-cover"
               style={{
@@ -592,11 +599,13 @@ export default function Home() {
               {house.eyebrow}
             </span>
 
-            <h2 className="relative text-[28px] italic font-serif leading-tight mb-5 max-w-[15ch] text-[#33261c] shrink-0">
+            {/* CHANGED: headline scales up at md/lg, plus a bit more width for the line */}
+            <h2 className="relative text-[28px] md:text-[32px] lg:text-[36px] italic font-serif leading-tight mb-5 max-w-[15ch] md:max-w-[18ch] text-[#33261c] shrink-0">
               {house.headline}
             </h2>
 
-            <p className="relative text-[13px] leading-relaxed text-[#5b4c3f] max-w-[33ch] shrink-0">
+            {/* CHANGED: body copy scales up and gets a wider max-width at md/lg */}
+            <p className="relative text-[13px] md:text-[14px] lg:text-[15px] leading-relaxed text-[#5b4c3f] max-w-[33ch] md:max-w-[38ch] lg:max-w-[40ch] shrink-0">
               {house.body}
             </p>
 
@@ -630,7 +639,10 @@ export default function Home() {
       )}
 
       {stage === "final" && (
-        <div className="animate-card-in w-full h-[100svh] sm:w-[320px] sm:h-[420px] sm:rounded-3xl bg-[#f6f0e6] shadow-2xl relative overflow-hidden flex flex-col px-8 pt-10 pb-8">
+        <div
+          // CHANGED: added md:/lg: width+height
+          className="animate-card-in w-full h-[100svh] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px] lg:w-[420px] lg:h-[560px] sm:rounded-3xl bg-[#f6f0e6] shadow-2xl relative overflow-hidden flex flex-col px-8 pt-10 pb-8 z-10"
+        >
           {makeHearts(999).map((h) => (
             <span
               key={h.id}
@@ -660,7 +672,7 @@ export default function Home() {
           </span>
 
           <h2
-            className="text-[20px] text-[#33261c] leading-none mb-4"
+            className="text-[20px] md:text-[24px] text-[#33261c] leading-none mb-4"
             style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
           >
             Pure like Water
@@ -679,7 +691,7 @@ export default function Home() {
                   className="snap-center shrink-0 w-full flex justify-center px-8"
                 >
                   <p
-                    className="text-[13px] text-[#33261c] leading-relaxed max-w-[95%]"
+                    className="text-[13px] md:text-[14px] text-[#33261c] leading-relaxed max-w-[95%]"
                     style={{ fontFamily: "QuickSand", fontWeight: 500 }}
                   >
                     {note}
@@ -722,7 +734,7 @@ export default function Home() {
             ].map((line, i) => (
               <div key={i} className="grid grid-cols-[1fr_50px] items-center">
                 <span
-                  className="text-[#5b4c3f] text-[20px]"
+                  className="text-[#5b4c3f] text-[20px] md:text-[22px]"
                   style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
                 >
                   {line.text}
