@@ -80,3 +80,16 @@ body {
 .animate-heart {
   animation: heart-float var(--duration, 1.6s) ease-out var(--delay, 0s) forwards;
 }
+
+
+.clip-path-envelope {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}

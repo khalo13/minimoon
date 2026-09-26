@@ -16,7 +16,7 @@ const houses = [
   },
   {
     numeral: "II",
-    label: "Values-",
+    label: "Values",
     eyebrow: "Your worth",
     headline: "Ever Respected",
     image: "/2.jpg",
@@ -116,8 +116,8 @@ const houses = [
   {
     numeral: "XI",
     label: "Desires",
-    eyebrow: "Dreams with light",
-    headline: "Friendship that endures",
+    eyebrow: "Long-Term Desires",
+    headline: "Always endures",
     image: "/12.jpeg",
     imagePos: "center 20%",
     body: "Capricorn steadies your house of hopes, making them patient and lasting. Sun, Jupiter and Mercury giving warmth, wisdom, and voice to the dreams you build. You don't collect people casually; you keep them, nurture them, and turn friendships into family. With you, every dream feels like it was built to last.",
@@ -141,8 +141,11 @@ const TOTAL = 12;
 const PASSCODE = "2013";
 
 const notes = [
-  "I hurt but will pray and bow forever. You deserve to be happy and respected always, and you succeeded. I wish you have the happiness and respect you deserve — with me, in future. Hoping to have you back in my arms with respect and safety, not only love and lust. This time I am making myself strong, to not allow myself to hurt you. I don't want to snatch your happiness.",
-  "I am getting what I deserve. Don't ever blame, hurt or disrespect your image — it's very precious. Smile like you used to. I wish you could see and feel that I am just loving you, praying for your happiness, and praying that God blesses you to forgive and come back to me with all safety and respect. I am no one without you. I am empty without you. I am half dead without you. I just wish to have everything between us smooth and alright. I wish to have you feel safe, secure, happy around.",
+  "Don't ever blame, hurt, cry or disrespect your image — it's very precious. Smile like you used to. I wish you could see and feel that I am just loving you, praying for your happiness, and praying that God blesses you to with emotional securtiy and one selfish thing to have you back with me with all safety and respect you deserve.",
+  "You deserve to be happy and respected. The person you wish i become to give happiness and respect you deserve — finally came but lately. Hoping to have you back in my arms with respect and safety, not only love and lust. This time I am making myself strong, to not allow myself to hurt you. I don't want to snatch your happiness.",
+  "If my calls, messages, voice, efforts, love is irritating you then i am gonna stop it immediately this is the actually i plan for valentines daay but not in the form of some website but still after sending it to you i will improve it further better for valentine's day. This is something i am preparing from your birthday.",
+  "The day i start reading your kundali and sametime thinking about you, i am start seeing that goddess itself came to me and because of own issues i disrespect and unable to identify. Your birth is like a minimoon on earth, queen of planets. I deserve this so its not your fault its fruit of my own actions i am getting.",
+
 ];
 
 function HouseSymbol({ symbol }) {
@@ -321,6 +324,7 @@ export default function Home() {
   const [digits, setDigits] = useState(["", "", "", ""]);
   const [shake, setShake] = useState(false);
   const [index, setIndex] = useState(0);
+  const [showLetter, setShowLetter] = useState(false);
   const [noteIndex, setNoteIndex] = useState(0);
   const notesRef = useRef(null);
   const house = houses[index];
@@ -343,8 +347,8 @@ export default function Home() {
         drift: (((n * 29) % 60) - 30), // -30px to +30px sideways
         rotFrom: ((n * 17) % 40) - 20,
         rotTo: ((n * 23) % 60) - 30,
-        color: ["#f3c9d4", "#f7dfe6", "#eab8c8", "#e94057"][n % 4],
-        opacity: 0.65 + ((n * 11) % 30) / 100,
+        color: ["#f64272", "#8d63f0", "#eab8c8", "#e94057"][n % 4],
+        opacity: 0.85 + ((n * 11) % 30) / 100,
       };
     });
 
@@ -391,22 +395,24 @@ export default function Home() {
   return (
     <main className="h-[100svh] bg-[#141220] flex items-center justify-center sm:p-6 overflow-hidden">
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        @keyframes swipe-hint {
-          0%, 100% { transform: translate(0, -50%); opacity: 0.5; }
-          50% { transform: translate(-5px, -50%); opacity: 1; }
-        }
-        .animate-swipe-hint {
-          animation: swipe-hint 1.3s ease-in-out infinite;
-        }
-      `}</style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+  .animate-breathe { animation: breathe 6s ease-in-out infinite; }
+
+  @keyframes swipe-hint {
+    0%, 100% { transform: translateY(-50%) translateX(0); opacity: 0.5; }
+    50% { transform: translateY(-50%) translateX(-6px); opacity: 1; }
+  }
+  .animate-swipe-hint { animation: swipe-hint 1.3s ease-in-out infinite; }
+`}</style>
+
       {(stage === "lock" || stage === "code") && (
         <div
           onClick={() => {
@@ -423,88 +429,68 @@ export default function Home() {
               setTimeout(() => document.getElementById("code-0")?.focus(), 50);
             }
           }}
-          className={`w-full h-[100svh] sm:w-[320px] sm:h-[420px] sm:rounded-3xl bg-[#f6f0e6] border border-[#33261c]/10 flex flex-col items-center justify-center gap-7 text-center px-8 shadow-2xl relative overflow-hidden ${
-            stage === "lock" ? "cursor-pointer" : ""
-          }`}
+          className={`w-full h-[100svh] sm:w-[320px] sm:h-[420px] sm:rounded-3xl border border-[#33261c]/10 flex flex-col items-center justify-center gap-7 text-center px-8 shadow-2xl relative overflow-hidden bg-cover bg-center ${stage === "lock" ? "cursor-pointer" : ""}`}
+          style={{ backgroundImage: "url('/main.jpg')" }}
         >
-          {/* soft warm glow, calm rather than moody */}
-          <div className="absolute w-[240px] h-[240px] rounded-full bg-[#e8b4c8]/25 blur-3xl animate-breathe pointer-events-none" />
+          {/* glowing background layers */}
+          <div className="absolute w-[280px] h-[280px] rounded-full bg-[#e8b4c8]/25 blur-3xl animate-breathe pointer-events-none" />
+          <div className="absolute w-[180px] h-[180px] rounded-full bg-[#c9a875]/20 blur-2xl animate-breathe pointer-events-none" />
 
-          {/* a few slow drifting hearts, sparse and gentle */}
+          {/* drifting hearts */}
           {stage === "lock" &&
             [0, 1, 2, 3].map((i) => (
               <span
                 key={i}
                 className="absolute bottom-10 pointer-events-none z-0"
                 style={{
-                  left: `${18 + i * 22}%`,
-                  fontSize: `${13 + (i % 2) * 5}px`,
+                  left: `${20 + i * 20}%`,
+                  fontSize: `${14 + (i % 2) * 4}px`,
                   color: ["#eab8c8", "#f3c9d4", "#e8b4c8"][i % 3],
                   opacity: 0.6,
-                  "--delay": `${i * 0.9}s`,
-                  "--duration": "4.5s",
-                  "--drift": `${(i % 2 === 0 ? 1 : -1) * 14}px`,
-                  "--rot-from": "-8deg",
-                  "--rot-to": "8deg",
-                  "--start-scale": 0.6,
-                  "--end-scale": 1,
-                  "--peak-opacity": 0.6,
-                  animationIterationCount: "infinite",
+                  animation: "breathe 5s ease-in-out infinite",
                 }}
               >
-                <span className="animate-heart inline-block">♥</span>
+                ♥
               </span>
             ))}
 
-          {/* wheel, redrawn in warm ink instead of gold-on-navy */}
-          <div className="relative w-[168px] h-[168px] shrink-0 z-10">
+          {/* central wheel */}
+          <div className="relative w-[168px] h-[168px] shrink-0 z-10 animate-breathe">
             <svg className="absolute inset-0" viewBox="0 0 176 176" fill="none">
-              <circle cx="88" cy="88" r="86" stroke="#33261c" strokeOpacity="0.14" strokeWidth="1" />
-              <circle cx="88" cy="88" r="62" stroke="#33261c" strokeOpacity="0.1" strokeWidth="1" />
+              <circle cx="88" cy="88" r="86" stroke="#05394c" strokeOpacity="0.14" strokeWidth="1" />
+              <circle cx="88" cy="88" r="62" stroke="#064166" strokeOpacity="0.1" strokeWidth="1" />
             </svg>
-
-            {houses.map((h, i) => {
-              const angle = (i / houses.length) * 360 - 90;
-              return (
-                <div
-                  key={h.symbol}
-                  className="absolute top-1/2 left-1/2 w-6 h-6 -ml-3 -mt-3 flex items-center justify-center"
-                  style={{ transform: `rotate(${angle}deg) translate(86px) rotate(${-angle}deg)` }}
-                >
-                  <span className="w-[5px] h-[5px] rounded-full bg-[#c1274a]/60" />
-                </div>
-              );
-            })}
-
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h1
-                className="text-[36px] text-[#33261c] leading-none"
-                style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
+                className="text-[38px] text-[#012836] leading-none"
+                style={{ fontFamily: "'TimesNewRoman', cursive", fontWeight: 700 }}
               >
                 MiniMoon
               </h1>
-              <span className="mt-2 text-[10px] text-[#b89a6a] tracking-wide">
-                One Girl, Only You, Forever You
+              <span className="mt-2 text-[11px] text-[#012836] tracking-wide">
+                One Girl · Only You
               </span>
             </div>
           </div>
 
+          {/* lock stage text */}
           {stage === "lock" && (
             <div className="flex flex-col items-center gap-3 z-10">
               <p
-                className="text-[16px] text-[#5b4c3f] leading-relaxed max-w-[24ch]"
-                style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
+                className="text-[15px] text-[#5b4c3f] leading-relaxed max-w-[24ch]"
+                style={{ fontFamily: "'TimesNewRoman', cursive", fontWeight: 600 }}
               >
-                a small universe containing you
+                Universe of Moon
               </p>
-              <div className="flex items-center gap-2 text-[11px] text-[#8a7d6a] italic tracking-wide">
-                <span className="w-6 h-px bg-[#b89a6a]/50" />
+              <div className="flex items-center gap-2 text-[11px] text-[#000b0f] italic tracking-wide">
+                <span className="w-6 h-px bg-[#000b0f]" />
                 <span>touch anywhere to begin</span>
-                <span className="w-6 h-px bg-[#b89a6a]/50" />
+                <span className="w-6 h-px bg-[]" />
               </div>
             </div>
           )}
 
+          {/* code stage */}
           {stage === "code" && (
             <div
               onClick={(e) => e.stopPropagation()}
@@ -667,7 +653,8 @@ export default function Home() {
               <span className="animate-heart inline-block">♥</span>
             </span>
           ))}
-          {/* small numeral tag, matching the other cards' top-left marker */}
+
+          {/* small numeral tag */}
           <span className="text-[9px] tracking-[0.2em] text-[#b89a6a] uppercase mb-1">
             XIII · THE CONNECTION
           </span>
@@ -676,21 +663,24 @@ export default function Home() {
             className="text-[20px] text-[#33261c] leading-none mb-4"
             style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
           >
-            My Queen and Goddess
+            Pure like Water
           </h2>
 
-          {/* swipeable note, two cards, with a peek of the next one */}
-          <div className="relative -mx-8">
+          {/* swipeable notes, one card fully visible at a time */}
+          <div className="relative -mx-10">
             <div
               ref={notesRef}
               onScroll={handleNotesScroll}
-              className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar px-8"
+              className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth"
             >
               {notes.map((note, i) => (
-                <div key={i} className="snap-center shrink-0 w-[86%] pr-6">
+                <div
+                  key={i}
+                  className="snap-center shrink-0 w-full flex justify-center px-8"
+                >
                   <p
-                    className="text-[13px] text-[#33261c] leading-relaxed"
-                    style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
+                    className="text-[13px] text-[#33261c] leading-relaxed max-w-[95%]"
+                    style={{ fontFamily: "QuickSand", fontWeight: 500 }}
                   >
                     {note}
                   </p>
@@ -705,7 +695,7 @@ export default function Home() {
             )}
           </div>
 
-          {notes.length > 1 && noteIndex === 0 && (
+          {notes.length > 1 && noteIndex >= 0 && (
             <span className="text-[10px] text-[#b89a6a]/70 text-center mt-1 shrink-0">
               swipe for the rest
             </span>
@@ -715,21 +705,22 @@ export default function Home() {
             {notes.map((_, i) => (
               <span
                 key={i}
-                className={`h-1.5 rounded-full transition-all ${
-                  noteIndex === i ? "w-4 bg-[#c1274a]" : "w-1.5 bg-[#c9a875]/40"
-                }`}
+                className={`h-1.5 rounded-full transition-all ${noteIndex === i
+                  ? "w-4 bg-[#c1274a]"
+                  : "w-1.5 bg-[#c9a875]/40"
+                  }`}
               />
             ))}
           </div>
 
-          {/* three lines, each with a heart at a different fill level */}
+          {/* three lines with hearts */}
           <div className="flex-1 grid grid-rows-3 items-center">
             {[
-              { text: "without you", fill: 5 },
+
               { text: "when I see you happy", fill: 50 },
               { text: "when I have you happy", fill: 100 },
             ].map((line, i) => (
-              <div key={i} className="grid grid-cols-[1fr_48px] items-center">
+              <div key={i} className="grid grid-cols-[1fr_50px] items-center">
                 <span
                   className="text-[#5b4c3f] text-[20px]"
                   style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
@@ -737,8 +728,8 @@ export default function Home() {
                   {line.text}
                 </span>
                 <svg
-                  width="40"
-                  height="36"
+                  width="20"
+                  height="20"
                   viewBox="0 0 32 29"
                   className="justify-self-end drop-shadow-sm"
                 >
@@ -752,14 +743,12 @@ export default function Home() {
                       />
                     </clipPath>
                   </defs>
-                  {/* outline, always visible */}
                   <path
                     d="M16 28C16 28 1 18.5 1 9.5C1 4.8 4.6 1 9 1C12 1 14.6 2.7 16 5.2C17.4 2.7 20 1 23 1C27.4 1 31 4.8 31 9.5C31 18.5 16 28 16 28Z"
                     fill="#f6f0e6"
                     stroke="#e94057"
                     strokeWidth="1.4"
                   />
-                  {/* fill, clipped to the percentage from the bottom */}
                   <path
                     d="M16 28C16 28 1 18.5 1 9.5C1 4.8 4.6 1 9 1C12 1 14.6 2.7 16 5.2C17.4 2.7 20 1 23 1C27.4 1 31 4.8 31 9.5C31 18.5 16 28 16 28Z"
                     fill="#e94057"
@@ -770,24 +759,74 @@ export default function Home() {
             ))}
           </div>
 
-          {/* the reveal */}
-          <div className="flex flex-col items-center gap-3 pt-4 shrink-0">
+          {/* reveal */}
+          <div className="flex flex-col items-center gap-3  shrink-0">
             <div className="flex items-center gap-2">
               <span className="w-4 h-px bg-[#b89a6a]/60" />
               <span className="text-[11px] italic tracking-wide text-[#8a7d6a]">
-                the answer, every time
+                the answer, you should know
               </span>
               <span className="w-4 h-px bg-[#b89a6a]/60" />
             </div>
-            <h3
-              className="text-[44px] text-[#c1274a] leading-none"
-              style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
-            >
-              I love you
-            </h3>
+
+            {/* Envelope preview */}
+            {!showLetter && (
+              <div
+                onClick={() => setShowLetter(true)}
+                className="cursor-pointer relative w-40 h-20 bg-[#f6f0e6] border border-[#b89a6a] rounded-md shadow-lg flex items-center justify-center transition-transform hover:scale-105 overflow-hidden"
+              >
+                {/* flap */}
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-[#e9dfcf] clip-path-envelope transition-transform duration-700 hover:-translate-y-2" />
+                <span className="text-[#b89a6a] text-sm italic z-10">Open</span>
+              </div>
+            )}
+
+            {/* Full screen letter reveal */}
+            {showLetter && (
+              <div className="fixed inset-0 bg-[#f6f0e6] flex flex-col items-center justify-center z-50 animate-fade-in overflow-y-auto">
+                <div className="w-full max-w-2xl mx-auto p-10 bg-[#fffaf3] border border-[#c9a875] rounded-xl shadow-2xl space-y-8">
+
+                  {/* Letter body */}
+                  <p
+                    className="text-[16px] text-[#33261c] leading-relaxed whitespace-pre-line"
+                    style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
+                  >
+                    Even if you don’t love me, I will always love, respect, and never blame you.
+                    My only wish is for you to be happy, safe, and respected.
+                    Even if the world misuses you, I will still accept you — only if you stay forever.
+
+                    If you ever feel low, don’t hesitate — call or message me.
+                    Come proudly, have rights on me slap me, kick me, push me i just not to make you fear.
+
+                    My heart took 4 years to soften like jelly. Yours is still jelly, only covered with a shell because of me.
+                  </p>
+
+                  {/* Closing line */}
+                  <h5
+                    className="text-[20px] text-[#c1274a] leading-tight text-center"
+                    style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
+                  >
+                    I said I love you once — <br></br>I meant forever.
+
+                  </h5>
+
+                  {/* Close button */}
+                  <div className="flex justify-center">
+                    <button
+                      onClick={() => setShowLetter(false)}
+                      className="mt-2 px-6 py-2 rounded-md bg-[#c9a875]/30 text-[#33261c] hover:bg-[#c9a875]/50 transition"
+                    >
+                      Close Letter
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
 
-          {/* back arrow, matching the other cards' nav */}
+
+          {/* back arrow */}
           <button
             onClick={() => {
               setIndex(houses.length - 1);
@@ -800,6 +839,7 @@ export default function Home() {
           </button>
         </div>
       )}
+
     </main>
   );
 }
