@@ -139,13 +139,15 @@ const houses = [
 
 const TOTAL = 12;
 const PASSCODE = "2013";
-
 const notes = [
-  "Don't ever blame, hurt, cry or disrespect your image — it's very precious. Smile like you used to. I wish you could see and feel that I am just loving you, praying for your happiness, and praying that God blesses you to with emotional securtiy and one selfish thing to have you back with me with all safety and respect you deserve.",
-  "You deserve to be happy and respected. The person you wish i become to give happiness and respect you deserve — finally came but lately. Hoping to have you back in my arms with respect and safety, not only love and lust. This time I am making myself strong, to not allow myself to hurt you. I don't want to snatch your happiness.",
-  "If my calls, messages, voice, efforts, love is irritating you then i am gonna stop it immediately this is the actually i plan for valentines daay but not in the form of some website but still after sending it to you i will improve it further better for valentine's day. This is something i am preparing from your birthday.",
-  "The day i start reading your kundali and sametime thinking about you, i am start seeing that goddess itself came to me and because of own issues i disrespect and unable to identify. Your birth is like a minimoon on earth, queen of planets. I deserve this so its not your fault its fruit of my own actions i am getting.",
 
+  "The day I started reading your kundali while thinking of you, I felt as if a goddess had come into my life. Because of my own flaws, I failed to recognize and honor that. Your birth feels like a mini-moon on earth, a queen among planets. If I suffer now, it’s not your fault — it’s the fruit of my own actions.",
+
+  "So never ever blame, hurt, or disrespect yourself — your image is precious. Smile the way you used to. I only wish you could feel that all I’m doing is loving you, praying for your happiness, and asking God to bless you with emotional security. Selfish this much thatstill hope to have you back with me, safe and respected, the way you deserve",
+
+  "You deserve happiness and respect. The person you once wished I could become, worship you — has finally arrived, though a little late the time you don't want 🙂. Waiting to hold you again, not just with love, but with safety and respect. This time determined , self working  to never hurt you or take away your joy while focusing on my future.  ",
+
+  "If my calls, messages, voice, or love ever feel like a irritation, I will stop it with time. This was something I had planned for Valentine’s Day, but even now I want you to know it comes from my heart. I began preparing this from your birthday, and I’ll keep improving it until it truly reflects my love till 14 Feb.",
 ];
 
 function HouseSymbol({ symbol }) {
@@ -438,6 +440,7 @@ export default function Home() {
           className={`w-full h-[100svh] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px] lg:w-[420px] lg:h-[560px] sm:rounded-3xl border border-[#33261c]/10 flex flex-col items-center justify-center gap-7 text-center px-8 shadow-2xl relative overflow-hidden bg-cover bg-center z-10 ${stage === "lock" ? "cursor-pointer" : ""}`}
           style={{ backgroundImage: "url('/main.jpg')" }}
         >
+          <div className="absolute inset-0 bg-white/40 z-0"></div>
           {/* glowing background layers */}
           <div className="absolute w-[280px] h-[280px] rounded-full bg-[#e8b4c8]/25 blur-3xl animate-breathe pointer-events-none" />
           <div className="absolute w-[180px] h-[180px] rounded-full bg-[#c9a875]/20 blur-2xl animate-breathe pointer-events-none" />
@@ -462,7 +465,7 @@ export default function Home() {
 
           {/* central wheel — CHANGED: grows slightly at md+ */}
           <div className="relative w-[168px] h-[168px] md:w-[200px] md:h-[200px] shrink-0 z-10 animate-breathe">
-            
+
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h1
                 className="text-[38px] md:text-[44px] text-[#012836] leading-none"
@@ -470,7 +473,7 @@ export default function Home() {
               >
                 MiniMoon
               </h1>
-             
+
             </div>
           </div>
 
