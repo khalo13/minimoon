@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 const houses = [
   {
     numeral: "I",
-    label: "ASCENDANT",
+    label: "You",
     eyebrow: "Your personality",
     headline: "Ever noticed",
     image: "/3.jpeg",
@@ -16,7 +16,7 @@ const houses = [
   },
   {
     numeral: "II",
-    label: "2ND HOUSE",
+    label: "Values-",
     eyebrow: "Your worth",
     headline: "Ever Respected",
     image: "/2.jpg",
@@ -27,7 +27,7 @@ const houses = [
   },
   {
     numeral: "III",
-    label: "3RD HOUSE",
+    label: "Speech-Efforts",
     eyebrow: "Your Efforts ",
     headline: "None can Match",
     image: "/4.jpeg",
@@ -38,7 +38,7 @@ const houses = [
   },
   {
     numeral: "IV",
-    label: "4TH HOUSE",
+    label: "Emotions",
     eyebrow: "Where Love lives",
     headline: "Home is you",
     image: "/5.jpeg",
@@ -49,7 +49,7 @@ const houses = [
   },
   {
     numeral: "V",
-    label: "5TH HOUSE",
+    label: "Expression",
     eyebrow: "Your Endless Love ",
     headline: "is unconditional",
     image: "/6.jpeg",
@@ -60,7 +60,7 @@ const houses = [
   },
   {
     numeral: "VI",
-    label: "6TH HOUSE",
+    label: "Fights",
     eyebrow: "Your Daily Battles",
     headline: "wrapped in Love",
     image: "/7.jpeg",
@@ -71,7 +71,7 @@ const houses = [
   },
   {
     numeral: "VII",
-    label: "7TH HOUSE",
+    label: "Me",
     eyebrow: "Your Chosen Bond",
     headline: "Love with intentions",
     image: "/8.jpeg",
@@ -82,7 +82,7 @@ const houses = [
   },
   {
     numeral: "VIII",
-    label: "8TH HOUSE",
+    label: "Priority",
     eyebrow: "Where trust lives",
     headline: "Safety is Priority",
     image: "/9.jpeg",
@@ -93,7 +93,7 @@ const houses = [
   },
   {
     numeral: "IX",
-    label: "9TH HOUSE",
+    label: "Blessing",
     eyebrow: "Your Fortune",
     headline: "Shaped by Wisdom",
     image: "/10.jpeg",
@@ -104,7 +104,7 @@ const houses = [
   },
   {
     numeral: "X",
-    label: "10TH HOUSE",
+    label: "Rights",
     eyebrow: "Your boundless path",
     headline: "Queen Success",
     image: "/11.jpeg",
@@ -115,7 +115,7 @@ const houses = [
   },
   {
     numeral: "XI",
-    label: "11TH HOUSE",
+    label: "Desires",
     eyebrow: "Dreams with light",
     headline: "Friendship that endures",
     image: "/12.jpeg",
@@ -126,7 +126,7 @@ const houses = [
   },
   {
     numeral: "XII",
-    label: "12TH HOUSE",
+    label: "US Together",
     eyebrow: "Your hidden fire",
     headline: "Quiet strength ",
     image: "/1.jpg",
