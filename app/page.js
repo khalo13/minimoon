@@ -484,7 +484,7 @@ export default function Home() {
                 MiniMoon
               </h1>
               <span className="mt-2 text-[10px] text-[#b89a6a] tracking-wide">
-                One Girl, 12 Ways
+                One Girl, Only You, Forever You
               </span>
             </div>
           </div>
