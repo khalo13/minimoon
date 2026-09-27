@@ -138,7 +138,7 @@ const houses = [
 ];
 
 const TOTAL = 12;
-const PASSCODE = "2013";
+const PASSCODE = "1320";
 const notes = [
 
   "The day I started reading your kundali while thinking of you, I felt as if a goddess had come into my life. Because of my own flaws, I failed to recognize and honor that. Your birth feels like a mini-moon on earth, a queen among planets. If I suffer now, it’s not your fault — it’s the fruit of my own actions.",
